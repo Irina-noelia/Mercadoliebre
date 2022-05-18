@@ -1,15 +1,19 @@
 {
-  "name": "cursofullstack",
+  "name": "ml-25-04-2022",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Irina",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3",
+    "express": "^4.18.0"
+  },
+  "devDependencies": {
+    "nodemo": "^1.0.0",
     "nodemon": "^2.0.15"
   }
 }

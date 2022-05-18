@@ -1,15 +1,60 @@
-const express = require('express');
-const path = require('path');
+const express = require('express')
+const app = express()
+const path = require('path')
 
-const app = express();
+const port = 3000
 
-const publicPath = path.resolve(__dirname,'./public');
-app.use(express.static(publicPath));
+// views
+const views = path.join(__dirname, 'views/')
+// public
+const public = path.join(__dirname, 'public/')
+// hhtp routes
+const httpRaiz = '/'
+const httpHome = '/home'
+const httpRegister = '/register'
+const httpLogin = '/login'
+const httpHomeLogin = '/homelogin'
+const httpFlexBox = '/flexbox'
+const httpPosition = '/position'
 
-app.get('/', (req,res) => {
-    res.sendFile(path.join(__dirname,"/views/home.html"))
-});
+// html
+const homeHtml = 'home.html'
+const registerHtml = 'register.html'
+const loginHtml = 'login.html'
+const flexBoxHtml = 'flexbox.html'
+const positionHtml = 'position.html'
 
-app.listen(3000, () =>
-    console.log('Levantando un servidor con Express')
-    )
+// Define the static file path
+app.use(express.static(__dirname +'/public/'));
+
+app.get(httpRaiz, (req, res) => {
+    res.sendFile(path.join(views, homeHtml))
+})
+
+app.get(httpHome, (req, res) => {
+    res.sendFile(path.join(views, homeHtml))
+})
+
+app.get(httpRegister, (req, res) => {
+    res.sendFile(path.join(views, registerHtml))
+})
+
+app.get(httpLogin, (req, res) => {
+    res.sendFile(path.join(views, loginHtml))
+})
+app.post(httpHomeLogin, (req, res) => {
+    res.sendFile(path.join(views, loginHtml))
+})
+
+app.get(httpFlexBox, (req, res) => {
+    res.sendFile(path.join(views, flexBoxHtml))
+})
+app.get(httpPosition, (req, res) => {
+    res.sendFile(path.join(views, positionHtml))
+})
+
+
+app.listen(port, () => {
+    console.log(`App listening at http://localhost:${port}`)
+    console.log(__dirname)
+})
