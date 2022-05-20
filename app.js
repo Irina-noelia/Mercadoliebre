@@ -54,7 +54,6 @@ app.get(httpPosition, (req, res) => {
 })
 
 
-app.listen(port, () => {
-    console.log(`App listening at http://localhost:${port}`)
-    console.log(__dirname)
+app.listen(process.env.PORT || 3000, function()  {
+    console.log('Servidor corriendo en el puerto 3000');
 })
